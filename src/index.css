@@ -1,0 +1,97 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%; /* Dark blue-gray */
+    --foreground: 210 40% 98%; /* Almost white */
+
+    --card: 224 71% 4%; /* Slightly darker blue-gray */
+    --card-foreground: 210 40% 98%; /* Almost white */
+
+    --popover: 224 71% 4%; /* Slightly darker blue-gray */
+    --popover-foreground: 210 40% 98%; /* Almost white */
+
+    --primary: 210 40% 98%; /* Adjusted primary - Using foreground color */
+    --primary-foreground: 222.2 84% 4.9%; /* Adjusted primary foreground - Using background */
+
+    --secondary: 217.2 32.6% 17.5%; /* Muted blue-gray */
+    --secondary-foreground: 210 40% 98%; /* Almost white */
+
+    --muted: 217.2 32.6% 17.5%; /* Muted blue-gray */
+    --muted-foreground: 215 20.2% 65.1%; /* Grayish */
+
+    --accent: 217.2 32.6% 17.5%; /* Muted blue-gray */
+    --accent-foreground: 210 40% 98%; /* Almost white */
+
+    --destructive: 0 63% 31%; /* Dark Red */
+    --destructive-foreground: 0 0% 98%; /* Light gray/white */
+
+    --success: 142.1 76.2% 36.3%; /* Green */
+    --success-foreground: 355.7 100% 97.3%; /* Light gray/white */
+
+    --border: 217.2 32.6% 17.5%; /* Muted blue-gray */
+    --input: 217.2 32.6% 17.5%; /* Muted blue-gray for input background */
+    --ring: 215 27.9% 46.9%; /* Lighter blue-gray for focus rings */
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+   html {
+    scroll-behavior: smooth;
+  }
+}
+
+
+/* Custom scrollbar for a more modern look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 10px;
+  border: 2px solid hsl(var(--background)); /* Creates padding around thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--accent-foreground) / 0.7);
+}
+
+/* Improve focus visibility */
+*:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    border-radius: var(--radius);
+}
+
+/* Smooth transitions for common elements */
+button, a, input, select, textarea {
+    @apply transition-all duration-200 ease-in-out;
+}
+
+/* Add specific styles for shadcn components if needed */
+.table-cell-positive {
+    @apply text-green-400;
+}
+
+.table-cell-negative {
+    @apply text-red-400;
+}
